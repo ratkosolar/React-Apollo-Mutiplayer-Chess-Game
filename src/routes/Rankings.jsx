@@ -7,9 +7,7 @@ const query = gql`
   {
     users {
       id
-      firstName
-      lastName
-      email
+      username
     }
   }
 `;
@@ -57,10 +55,7 @@ class RankingsRoute extends Component {
               {users.map((user, index) => (
                 <li key={user.id}>
                   <span>{index + 1}.</span>
-                  <span>
-                    {user.firstName} {user.lastName}
-                  </span>
-                  <span>{user.email}</span>
+                  <span>{user.username}</span>
                 </li>
               ))}
             </ul>

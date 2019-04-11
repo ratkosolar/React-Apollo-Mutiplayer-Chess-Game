@@ -16,10 +16,12 @@ const wsLink = new WebSocketLink({
   uri: `${process.env.REACT_APP_GRAPHQL_SERVER_WS}`,
   options: {
     reconnect: true,
-    connectionParams: {
-      Authorization: AuthGuard.isAuthenticated()
-        ? `Bearer ${AuthGuard.isAuthenticated()}`
-        : null
+    lazy: true,
+    connectionParams: () => {
+      const token = AuthGuard.isAuthenticated();
+      return {
+        Authorization: token ? `Bearer ${token}` : null
+      };
     }
   }
 });

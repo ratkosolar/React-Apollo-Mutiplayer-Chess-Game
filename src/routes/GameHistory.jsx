@@ -2,11 +2,21 @@ import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
 import gql from 'graphql-tag';
 import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner';
+import GameHistory from '../components/GameHistory/GameHistory';
 
 const query = gql`
   {
     games {
       id
+      playerOne {
+        username
+      }
+      playerTwo {
+        username
+      }
+      winner {
+        username
+      }
       playerOneID
       playerTwoID
       playerOneColor
@@ -56,22 +66,7 @@ class GameHistoryRoute extends Component {
 
         {loading && <LoadingSpinner />}
         {error && <p className="message--error">{error.message}</p>}
-
-        {games && (
-          <div className="games-list">
-            {games.length === 0 && <p className="message">No games to list</p>}
-            <ul>
-              {games.map((game, index) => (
-                <li key={game.id}>
-                  <span>{index + 1}</span>
-                  <span>{game.fen}</span>
-                  <span>{game.startDate}</span>
-                  <span>{game.endDate}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {games && <GameHistory games={games} />}
       </div>
     );
   }

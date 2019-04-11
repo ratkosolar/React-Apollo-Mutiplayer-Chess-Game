@@ -83,8 +83,7 @@ const HomeRoute = () => {
                     me={data.me.id}
                     games={data.games.filter(
                       game =>
-                        game.playerOneID !== data.me.id &&
-                        game.playerTwoID !== data.me.id
+                        game.playerOneID !== data.me.id && !game.playerTwoID
                     )}
                   />
                 </CardBox>
