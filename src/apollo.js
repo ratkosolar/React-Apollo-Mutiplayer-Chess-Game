@@ -9,11 +9,11 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import AuthGuard from './auth/AuthGuard';
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:8000/graphql'
+  uri: `${process.env.REACT_APP_GRAPHQL_SERVER}`
 });
 
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:8000/graphql`,
+  uri: `${process.env.REACT_APP_GRAPHQL_SERVER_WS}`,
   options: {
     reconnect: true,
     connectionParams: {

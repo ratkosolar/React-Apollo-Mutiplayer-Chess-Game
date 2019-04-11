@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="col-sm-auto">
             <a
               className={styles.IconLink}
-              href="https://github.com/ratkosolar/React-Chess-Multiplayer-Game"
+              href="https://github.com/ratkosolar/React-Apollo-Mutiplayer-Chess-Game"
               target="_blank"
               rel="noopener noreferrer"
             >
