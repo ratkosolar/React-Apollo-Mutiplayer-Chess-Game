@@ -51,7 +51,6 @@ class ChessGame extends Component {
     const turn = chess.turn();
 
     // Build fallen soldiers from move history
-    console.log(history);
     const fallenSoldiers = history
       .filter(move => move.captured)
       .map(move => {
