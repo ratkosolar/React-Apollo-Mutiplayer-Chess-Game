@@ -66,7 +66,9 @@ class GameHistoryRoute extends Component {
 
         {loading && <LoadingSpinner />}
         {error && <p className="message--error">{error.message}</p>}
-        {games && <GameHistory games={games} />}
+        {games && (
+          <GameHistory games={games.filter(game => game.gameOver === true)} />
+        )}
       </div>
     );
   }
