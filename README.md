@@ -1,6 +1,6 @@
 # Online Multiplayer Chess Game - React/Apollo
 
-Online multiplayer chess game built with React and Apollo. You can try it out [here](https://multiplayer-chess.netlify.com/). Feel free to checkout the [server side source code](https://github.com/ratkosolar/Chess-Multiplayer-Apollo-GraphQL-Server) too.
+Online multiplayer chess game built with React and Apollo. You can try it out [here](https://multiplayer-chess.netlify.com/). Feel free to checkout the [server side source code](https://github.com/ratkosolar/Apollo-GraphQL-Express-Multiplayer-Chess-Server) too.
 
 ## Installation
 
