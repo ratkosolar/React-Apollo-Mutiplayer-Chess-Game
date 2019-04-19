@@ -8,6 +8,7 @@ const query = gql`
     users {
       id
       username
+      eloRating
     }
   }
 `;
@@ -52,12 +53,20 @@ class RankingsRoute extends Component {
           <div className="users-list">
             {users.length === 0 && <p className="message">No users to list</p>}
             <ul>
-              {users.map((user, index) => (
-                <li key={user.id}>
-                  <span>{index + 1}.</span>
-                  <span>{user.username}</span>
-                </li>
-              ))}
+              {users
+                .sort((a, b) => b.eloRating - a.eloRating)
+                .map((user, index) => (
+                  <li key={user.id}>
+                    <span>{index + 1}.</span>
+                    <span>
+                      <strong>{user.username}</strong>
+                    </span>
+                    <span> - </span>
+                    <span>
+                      rating: <strong>{user.eloRating}</strong>
+                    </span>
+                  </li>
+                ))}
             </ul>
           </div>
         )}

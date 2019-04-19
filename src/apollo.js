@@ -55,7 +55,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
       console.log('GraphQL error', message);
 
       if (message === 'UNAUTHENTICATED') {
-        console.log('Unauthenticated');
+        console.error('Unauthenticated');
+        document.location = '/logout';
       }
     });
   }
@@ -63,8 +64,9 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (networkError) {
     console.log('Network error', networkError);
 
-    if (networkError.statusCode === 401) {
-      console.log('Unauthenticated');
+    if (networkError.statusCode === 401 || networkError.statusCode === 400) {
+      console.error('Unauthenticated');
+      document.location = '/logout';
     }
   }
 });
