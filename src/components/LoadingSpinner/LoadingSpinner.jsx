@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styles from './LoadingSpinner.module.scss';
 
-const LoadingSpinner = ({ hidden, message }) => {
+const LoadingSpinner = ({ hidden, message, messageTimeout = 0 }) => {
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    const messageTimer = setTimeout(() => setShowMessage(true), messageTimeout);
+    return () => {
+      clearTimeout(messageTimer);
+    };
+  }, []);
+
   if (hidden !== true) {
     return (
       <div className={styles['Spinner__Container']}>
@@ -11,7 +20,9 @@ const LoadingSpinner = ({ hidden, message }) => {
           <div />
           <div />
         </div>
-        {message && <p className={styles['Spinner__Message']}>{message}</p>}
+        {message && showMessage === true && (
+          <p className={styles['Spinner__Message']}>{message}</p>
+        )}
       </div>
     );
   }

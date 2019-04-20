@@ -33,7 +33,12 @@ const LoginRoute = () => {
 
                 return (
                   <>
-                    {loading && <LoadingSpinner />}
+                    {loading && (
+                      <LoadingSpinner
+                        message="Heroku server may take up to 30 seconds to wake up on first request"
+                        messageTimeout={3000}
+                      />
+                    )}
                     <LoginForm
                       onSubmit={(username, password) =>
                         login({
