@@ -5,11 +5,11 @@ import { Props, Theme } from "./Theme.types";
 
 const colorPrimary = {
   lightest: "#cac2b5",
-  lighter: "#cac2b5",
+  lighter: "#d5cec4",
   light: "#cac2b5",
   default: "#edd4b2",
   dark: "#d0a98f",
-  darker: "#d0a98f",
+  darker: "#9f917a",
   darkest: "#d0a98f",
 };
 
