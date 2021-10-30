@@ -10,7 +10,9 @@
     "serve": "gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx,js,jsx}",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,md}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,md}\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "gatsby": "^4.0.2",
@@ -35,6 +37,10 @@
     "typescript": "^4.4.4"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/react": "^6.3.12",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
