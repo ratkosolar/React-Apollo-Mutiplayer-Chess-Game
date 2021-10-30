@@ -6,8 +6,8 @@ const config = {
   copyright: "Copyright © 2021. Ratko Solar",
   fonts: ["lato:300", "raleway:600"],
   backgroundColor: "#ffffff",
-  themeColor: "#000000"
-}
+  themeColor: "#000000",
+};
 
 module.exports = {
   pathPrefix: "/",
@@ -40,6 +40,18 @@ module.exports = {
         host: config.siteUrl,
         sitemap: `${config.siteUrl}/sitemap.xml`,
         policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/layout/Layout.tsx`),
       },
     },
     {
