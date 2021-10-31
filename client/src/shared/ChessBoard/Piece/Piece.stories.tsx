@@ -1,12 +1,12 @@
 import React from "react";
 import { Story } from "@storybook/react";
 
-import { ThemeWrapper } from "../Theme";
-import { Flex } from "../Flex";
-import { ChessPiece } from ".";
+import { ThemeWrapper } from "../../Theme";
+import { Flex } from "../../Flex";
+import { Piece } from ".";
 
 export default {
-  title: "Shared / ChessPiece",
+  title: "Shared / ChessBoard / Piece",
 };
 
 export const All: Story = () => {
@@ -15,60 +15,60 @@ export const All: Story = () => {
       <div style={{ maxWidth: "200px" }}>
         <Flex container>
           <Flex item grow={1}>
-            <ChessPiece type="rook" color="light" />
+            <Piece type="rook" color="light" />
           </Flex>
           <Flex item grow={1}>
-            <ChessPiece type="rook" color="dark" />
-          </Flex>
-        </Flex>
-      </div>
-      <div style={{ maxWidth: "200px" }}>
-        <Flex container>
-          <Flex item grow={1}>
-            <ChessPiece type="knight" color="light" />
-          </Flex>
-          <Flex item grow={1}>
-            <ChessPiece type="knight" color="dark" />
+            <Piece type="rook" color="dark" />
           </Flex>
         </Flex>
       </div>
       <div style={{ maxWidth: "200px" }}>
         <Flex container>
           <Flex item grow={1}>
-            <ChessPiece type="bishop" color="light" />
+            <Piece type="knight" color="light" />
           </Flex>
           <Flex item grow={1}>
-            <ChessPiece type="bishop" color="dark" />
-          </Flex>
-        </Flex>
-      </div>
-      <div style={{ maxWidth: "200px" }}>
-        <Flex container>
-          <Flex item grow={1}>
-            <ChessPiece type="pawn" color="light" />
-          </Flex>
-          <Flex item grow={1}>
-            <ChessPiece type="pawn" color="dark" />
+            <Piece type="knight" color="dark" />
           </Flex>
         </Flex>
       </div>
       <div style={{ maxWidth: "200px" }}>
         <Flex container>
           <Flex item grow={1}>
-            <ChessPiece type="queen" color="light" />
+            <Piece type="bishop" color="light" />
           </Flex>
           <Flex item grow={1}>
-            <ChessPiece type="queen" color="dark" />
+            <Piece type="bishop" color="dark" />
           </Flex>
         </Flex>
       </div>
       <div style={{ maxWidth: "200px" }}>
         <Flex container>
           <Flex item grow={1}>
-            <ChessPiece type="king" color="light" />
+            <Piece type="pawn" color="light" />
           </Flex>
           <Flex item grow={1}>
-            <ChessPiece type="king" color="dark" />
+            <Piece type="pawn" color="dark" />
+          </Flex>
+        </Flex>
+      </div>
+      <div style={{ maxWidth: "200px" }}>
+        <Flex container>
+          <Flex item grow={1}>
+            <Piece type="queen" color="light" />
+          </Flex>
+          <Flex item grow={1}>
+            <Piece type="queen" color="dark" />
+          </Flex>
+        </Flex>
+      </div>
+      <div style={{ maxWidth: "200px" }}>
+        <Flex container>
+          <Flex item grow={1}>
+            <Piece type="king" color="light" />
+          </Flex>
+          <Flex item grow={1}>
+            <Piece type="king" color="dark" />
           </Flex>
         </Flex>
       </div>

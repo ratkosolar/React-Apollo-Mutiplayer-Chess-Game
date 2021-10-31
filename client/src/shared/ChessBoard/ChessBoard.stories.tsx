@@ -2,7 +2,7 @@ import React from "react";
 import { Story } from "@storybook/react";
 
 import { ThemeWrapper } from "../Theme";
-import { ChessPiece } from "../ChessPiece";
+import { Piece } from "./Piece";
 import { ChessBoard } from ".";
 
 export default {
@@ -33,48 +33,48 @@ export const EmptyBoard: Story = () => {
 export const FullBoard: Story = () => {
   const piecesMatrix = [
     [
-      <ChessPiece type="rook" color="dark" />,
-      <ChessPiece type="knight" color="dark" />,
-      <ChessPiece type="bishop" color="dark" />,
-      <ChessPiece type="king" color="dark" />,
-      <ChessPiece type="queen" color="dark" />,
-      <ChessPiece type="bishop" color="dark" />,
-      <ChessPiece type="knight" color="dark" />,
-      <ChessPiece type="rook" color="dark" />,
+      <Piece type="rook" color="dark" />,
+      <Piece type="knight" color="dark" />,
+      <Piece type="bishop" color="dark" />,
+      <Piece type="king" color="dark" />,
+      <Piece type="queen" color="dark" />,
+      <Piece type="bishop" color="dark" />,
+      <Piece type="knight" color="dark" />,
+      <Piece type="rook" color="dark" />,
     ],
     [
-      <ChessPiece type="pawn" color="dark" />,
-      <ChessPiece type="pawn" color="dark" />,
-      <ChessPiece type="pawn" color="dark" />,
-      <ChessPiece type="pawn" color="dark" />,
-      <ChessPiece type="pawn" color="dark" />,
-      <ChessPiece type="pawn" color="dark" />,
-      <ChessPiece type="pawn" color="dark" />,
-      <ChessPiece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
+      <Piece type="pawn" color="dark" />,
     ],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
     [
-      <ChessPiece type="pawn" color="light" />,
-      <ChessPiece type="pawn" color="light" />,
-      <ChessPiece type="pawn" color="light" />,
-      <ChessPiece type="pawn" color="light" />,
-      <ChessPiece type="pawn" color="light" />,
-      <ChessPiece type="pawn" color="light" />,
-      <ChessPiece type="pawn" color="light" />,
-      <ChessPiece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
+      <Piece type="pawn" color="light" />,
     ],
     [
-      <ChessPiece type="rook" color="light" />,
-      <ChessPiece type="knight" color="light" />,
-      <ChessPiece type="bishop" color="light" />,
-      <ChessPiece type="king" color="light" />,
-      <ChessPiece type="queen" color="light" />,
-      <ChessPiece type="bishop" color="light" />,
-      <ChessPiece type="knight" color="light" />,
-      <ChessPiece type="rook" color="light" />,
+      <Piece type="rook" color="light" />,
+      <Piece type="knight" color="light" />,
+      <Piece type="bishop" color="light" />,
+      <Piece type="king" color="light" />,
+      <Piece type="queen" color="light" />,
+      <Piece type="bishop" color="light" />,
+      <Piece type="knight" color="light" />,
+      <Piece type="rook" color="light" />,
     ],
   ];
 

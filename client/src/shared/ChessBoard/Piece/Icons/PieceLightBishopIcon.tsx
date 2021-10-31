@@ -1,6 +1,6 @@
 import React from "react";
 
-export const IconLightBishop = (props) => (
+export const PieceLightBishopIcon = (props) => (
   <svg viewBox="0 0 45 45" {...props}>
     <g
       fill="none"
