@@ -1,7 +1,8 @@
 import React from "react";
+import { SvgBase } from "./SvgBase";
 
 export const PieceLightRookIcon = (props) => (
-  <svg viewBox="0 0 45 45" {...props}>
+  <SvgBase {...props}>
     <g
       fill="#fff"
       fillRule="evenodd"
@@ -19,5 +20,5 @@ export const PieceLightRookIcon = (props) => (
       <path d="M31 29.5l1.5 2.5h-20l1.5-2.5" />
       <path d="M11 14h23" fill="none" strokeLinejoin="miter" />
     </g>
-  </svg>
+  </SvgBase>
 );

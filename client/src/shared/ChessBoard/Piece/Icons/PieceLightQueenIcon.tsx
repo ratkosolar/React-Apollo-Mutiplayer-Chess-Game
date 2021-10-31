@@ -1,7 +1,8 @@
 import React from "react";
+import { SvgBase } from "./SvgBase";
 
 export const PieceLightQueenIcon = (props) => (
-  <svg viewBox="0 0 45 45" {...props}>
+  <SvgBase {...props}>
     <g
       fill="#fff"
       fillRule="evenodd"
@@ -21,5 +22,5 @@ export const PieceLightQueenIcon = (props) => (
       />
       <path d="M11.5 30c3.5-1 18.5-1 22 0M12 33.5c6-1 15-1 21 0" fill="none" />
     </g>
-  </svg>
+  </SvgBase>
 );

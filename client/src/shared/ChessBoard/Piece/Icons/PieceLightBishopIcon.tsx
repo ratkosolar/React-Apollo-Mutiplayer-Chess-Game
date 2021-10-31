@@ -1,7 +1,8 @@
 import React from "react";
+import { SvgBase } from "./SvgBase";
 
 export const PieceLightBishopIcon = (props) => (
-  <svg viewBox="0 0 45 45" {...props}>
+  <SvgBase {...props}>
     <g
       fill="none"
       fillRule="evenodd"
@@ -20,5 +21,5 @@ export const PieceLightBishopIcon = (props) => (
         strokeLinejoin="miter"
       />
     </g>
-  </svg>
+  </SvgBase>
 );
