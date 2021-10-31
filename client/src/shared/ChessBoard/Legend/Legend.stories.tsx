@@ -27,7 +27,7 @@ export const Reversed: Story = () => {
 export const Highlighted: Story = () => {
   return (
     <ThemeWrapper>
-      <Legend hoveredCoordinates={{ x: 2, y: 4 }} />
+      <Legend hoveredSquare={{ x: 2, y: 4 }} />
     </ThemeWrapper>
   );
 };
@@ -35,7 +35,7 @@ export const Highlighted: Story = () => {
 export const HighlightedReversed: Story = () => {
   return (
     <ThemeWrapper>
-      <Legend hoveredCoordinates={{ x: 2, y: 4 }} reversed />
+      <Legend hoveredSquare={{ x: 2, y: 4 }} reversed />
     </ThemeWrapper>
   );
 };

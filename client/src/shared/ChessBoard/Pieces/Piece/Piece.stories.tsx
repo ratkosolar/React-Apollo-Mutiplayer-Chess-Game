@@ -1,10 +1,10 @@
 import React from "react";
 import { Story } from "@storybook/react";
 
-import { ThemeWrapper } from "../../Theme";
-import { Flex } from "../../Flex";
-import { Piece } from ".";
-import { ChessColor, ChessPieceType } from "../ChessBoard.types";
+import { ThemeWrapper } from "../../../Theme";
+import { Flex } from "../../../Flex";
+import { Piece } from "./index";
+import { ChessColor, ChessPieceType } from "../../ChessBoard.types";
 
 export default {
   title: "Shared / ChessBoard / Piece",

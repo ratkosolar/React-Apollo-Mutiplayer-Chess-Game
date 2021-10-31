@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import styled from "styled-components";
 
 import { Props, AxisLegendProps, AxisLabels, Placement } from "./Legend.types";
@@ -79,16 +79,14 @@ const Y_AXIS_LABELS_DEFAULT: AxisLabels = [
 const AxisLegend: FC<AxisLegendProps> = ({
   placement,
   labels,
-  hoveredCoordinates,
+  hoveredSquare,
   reversed,
 }) => {
   const isHorizontal = placement === "top" || placement === "bottom";
   const LegendComponent = isHorizontal
     ? StyledLegendHorizontal
     : StyledLegendVertical;
-  const coordinate = isHorizontal
-    ? hoveredCoordinates?.x
-    : hoveredCoordinates?.y;
+  const coordinate = isHorizontal ? hoveredSquare?.x : hoveredSquare?.y;
 
   return (
     <LegendComponent $placement={placement} $reversed={reversed}>
@@ -101,38 +99,46 @@ const AxisLegend: FC<AxisLegendProps> = ({
   );
 };
 
-export const Legend: FC<Props> = ({
-  xAxisLabels = X_AXIS_LABELS_DEFAULT,
-  yAxisLabels = Y_AXIS_LABELS_DEFAULT,
-  hoveredCoordinates,
-  reversed,
-}) => {
-  return (
-    <>
-      <AxisLegend
-        placement="top"
-        labels={xAxisLabels}
-        hoveredCoordinates={hoveredCoordinates}
-        reversed={reversed}
-      />
-      <AxisLegend
-        placement="bottom"
-        labels={xAxisLabels}
-        hoveredCoordinates={hoveredCoordinates}
-        reversed={reversed}
-      />
-      <AxisLegend
-        placement="left"
-        labels={yAxisLabels}
-        hoveredCoordinates={hoveredCoordinates}
-        reversed={reversed}
-      />
-      <AxisLegend
-        placement="right"
-        labels={yAxisLabels}
-        hoveredCoordinates={hoveredCoordinates}
-        reversed={reversed}
-      />
-    </>
-  );
-};
+export const Legend: FC<Props> = memo(
+  ({
+    xAxisLabels = X_AXIS_LABELS_DEFAULT,
+    yAxisLabels = Y_AXIS_LABELS_DEFAULT,
+    hoveredSquare,
+    reversed,
+  }) => {
+    return (
+      <>
+        <AxisLegend
+          placement="top"
+          labels={xAxisLabels}
+          hoveredSquare={hoveredSquare}
+          reversed={reversed}
+        />
+        <AxisLegend
+          placement="bottom"
+          labels={xAxisLabels}
+          hoveredSquare={hoveredSquare}
+          reversed={reversed}
+        />
+        <AxisLegend
+          placement="left"
+          labels={yAxisLabels}
+          hoveredSquare={hoveredSquare}
+          reversed={reversed}
+        />
+        <AxisLegend
+          placement="right"
+          labels={yAxisLabels}
+          hoveredSquare={hoveredSquare}
+          reversed={reversed}
+        />
+      </>
+    );
+  },
+  (prevProps, nextProps) =>
+    prevProps.hoveredSquare?.x === nextProps.hoveredSquare?.x &&
+    prevProps.hoveredSquare?.y === nextProps.hoveredSquare?.y &&
+    prevProps.xAxisLabels === nextProps.xAxisLabels &&
+    prevProps.yAxisLabels === nextProps.yAxisLabels &&
+    prevProps.reversed === nextProps.reversed
+);

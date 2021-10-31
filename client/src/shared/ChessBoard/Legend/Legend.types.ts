@@ -16,13 +16,13 @@ export type AxisLabels = [
 export type AxisLegendProps = {
   placement: Placement;
   labels: AxisLabels;
-  hoveredCoordinates?: Coordinates;
+  hoveredSquare?: Coordinates;
   reversed?: boolean;
 };
 
 export type Props = {
   xAxisLabels?: AxisLabels;
   yAxisLabels?: AxisLabels;
-  hoveredCoordinates?: Coordinates;
+  hoveredSquare?: Coordinates;
   reversed?: boolean;
 };

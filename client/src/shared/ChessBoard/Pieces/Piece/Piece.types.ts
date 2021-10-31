@@ -1,4 +1,4 @@
-import { ChessColor, ChessPieceType } from "../ChessBoard.types";
+import { ChessColor, ChessPieceType } from "../../ChessBoard.types";
 
 export type Props = {
   type: ChessPieceType;

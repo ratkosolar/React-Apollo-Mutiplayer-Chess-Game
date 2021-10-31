@@ -1,9 +1,14 @@
+import { ChessPieceWithCoordinates } from "../Pieces/Pieces.types";
 import { ChessPiece, Coordinates } from "../ChessBoard.types";
 
-export type ChessPiecesMatrix = (ChessPiece | null)[][];
+export type LegalMovesMap = Record<string, boolean>;
 
 export type Props = {
-  piecesMatrix: ChessPiecesMatrix;
+  hoveredSquare?: Coordinates;
+  draggingPiece?: ChessPieceWithCoordinates;
   reversed?: boolean;
-  onSquareHover: (coordinates?: Coordinates) => void;
+  calculateLegalMoves?: (
+    piece: ChessPiece,
+    coordinates: Coordinates
+  ) => Coordinates[];
 };

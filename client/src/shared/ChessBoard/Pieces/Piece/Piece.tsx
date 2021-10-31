@@ -1,12 +1,11 @@
 import React, { FC } from "react";
 
 import { Props } from "./Piece.types";
-import { ChessColor, ChessPieceType } from "../ChessBoard.types";
+import { ChessColor, ChessPieceType } from "../../ChessBoard.types";
 import { PieceDark, PieceLight } from "./Icons";
 
 export const Piece: FC<Props> = ({ type, color }) => {
   const IconComponent = color === ChessColor.LIGHT ? PieceLight : PieceDark;
-
   switch (type) {
     case ChessPieceType.ROOK:
       return <IconComponent.Rook />;
