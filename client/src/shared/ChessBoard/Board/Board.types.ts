@@ -1,7 +1,6 @@
-import { ReactNode } from "react";
-import { Coordinates } from "../ChessBoard.types";
+import { ChessPiece, Coordinates } from "../ChessBoard.types";
 
-export type ChessPiecesMatrix = ReactNode[][];
+export type ChessPiecesMatrix = (ChessPiece | null)[][];
 
 export type Props = {
   piecesMatrix: ChessPiecesMatrix;

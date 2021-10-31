@@ -1,9 +1,10 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useMemo } from "react";
 import styled from "styled-components";
 
 import { Coordinates, Props } from "./ChessBoard.types";
 import { Board } from "./Board";
 import { Legend } from "./Legend";
+import { mapFenStringToPiecesMatrix } from "./utils";
 
 const StyledBoardWrapper = styled.div`
   position: relative;
@@ -13,12 +14,16 @@ const StyledBoardWrapper = styled.div`
 `;
 
 export const ChessBoard: FC<Props> = ({
-  piecesMatrix,
+  fen,
   reversed,
   xAxisLabels,
   yAxisLabels,
 }) => {
   const [hoveredCoordinates, setHoveredCoordinates] = useState<Coordinates>();
+
+  const piecesMatrix = useMemo(() => {
+    return mapFenStringToPiecesMatrix(fen);
+  }, [fen]);
 
   return (
     <StyledBoardWrapper>

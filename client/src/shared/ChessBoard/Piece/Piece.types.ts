@@ -1,4 +1,6 @@
+import { ChessColor, ChessPieceType } from "../ChessBoard.types";
+
 export type Props = {
-  type: "rook" | "knight" | "bishop" | "queen" | "king" | "pawn";
-  color: "light" | "dark";
+  type: ChessPieceType;
+  color: ChessColor;
 };

@@ -1,3 +1,5 @@
+import { ChessColor } from "../ChessBoard.types";
+
 export type Props = {
-  color: "dark" | "light";
+  color: ChessColor;
 };

@@ -16,10 +16,26 @@ export const Default: Story = () => {
   );
 };
 
+export const Reversed: Story = () => {
+  return (
+    <ThemeWrapper>
+      <Legend reversed />
+    </ThemeWrapper>
+  );
+};
+
 export const Highlighted: Story = () => {
   return (
     <ThemeWrapper>
       <Legend hoveredCoordinates={{ x: 2, y: 4 }} />
+    </ThemeWrapper>
+  );
+};
+
+export const HighlightedReversed: Story = () => {
+  return (
+    <ThemeWrapper>
+      <Legend hoveredCoordinates={{ x: 2, y: 4 }} reversed />
     </ThemeWrapper>
   );
 };

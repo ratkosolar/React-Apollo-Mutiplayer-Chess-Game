@@ -2,12 +2,13 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 import { Props } from "./Square.types";
+import { ChessColor } from "../ChessBoard.types";
 
-const StyledSquare = styled.div<{ $color: "light" | "dark" }>`
+const StyledSquare = styled.div<{ $color: ChessColor }>`
   flex-grow: 1;
   position: relative;
   background-color: ${(p) =>
-    p.$color === "dark"
+    p.$color === ChessColor.DARK
       ? p.theme.colors.primary.darker
       : p.theme.colors.primary.lighter};
 

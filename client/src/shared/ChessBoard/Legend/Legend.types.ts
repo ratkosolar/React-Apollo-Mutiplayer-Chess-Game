@@ -1,4 +1,4 @@
-import { Props as ChessBoardProps, Coordinates } from "../ChessBoard.types";
+import { Coordinates } from "../ChessBoard.types";
 
 export type Placement = "top" | "bottom" | "left" | "right";
 

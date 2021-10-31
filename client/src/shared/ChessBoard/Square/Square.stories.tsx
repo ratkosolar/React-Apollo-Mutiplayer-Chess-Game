@@ -5,6 +5,7 @@ import { ThemeWrapper } from "../../Theme";
 import { Flex } from "../../Flex";
 import { Square } from ".";
 import { Piece } from "../Piece";
+import { ChessColor, ChessPieceType } from "../ChessBoard.types";
 
 export default {
   title: "Shared / ChessBoard / Square",
@@ -15,7 +16,7 @@ export const Light: Story = () => {
     <ThemeWrapper>
       <div style={{ maxWidth: "100px" }}>
         <Flex container>
-          <Square color="light"></Square>
+          <Square color={ChessColor.LIGHT} />
         </Flex>
       </div>
     </ThemeWrapper>
@@ -27,7 +28,7 @@ export const Dark: Story = () => {
     <ThemeWrapper>
       <div style={{ maxWidth: "100px" }}>
         <Flex container>
-          <Square color="dark"></Square>
+          <Square color={ChessColor.DARK} />
         </Flex>
       </div>
     </ThemeWrapper>
@@ -39,8 +40,8 @@ export const WithPiece: Story = () => {
     <ThemeWrapper>
       <div style={{ maxWidth: "100px" }}>
         <Flex container>
-          <Square color="light">
-            <Piece type="queen" color="dark" />
+          <Square color={ChessColor.LIGHT}>
+            <Piece type={ChessPieceType.QUEEN} color={ChessColor.DARK} />
           </Square>
         </Flex>
       </div>

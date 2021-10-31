@@ -6,8 +6,27 @@ export type Coordinates = {
   y: number;
 };
 
+export enum ChessPieceType {
+  KING = "king",
+  QUEEN = "queen",
+  ROOK = "rook",
+  KNIGHT = "knight",
+  BISHOP = "bishop",
+  PAWN = "pawn",
+}
+
+export type ChessPiece = {
+  type: ChessPieceType;
+  color: ChessColor;
+};
+
+export enum ChessColor {
+  LIGHT = "light",
+  DARK = "dark",
+}
+
 export type Props = {
-  piecesMatrix: ChessPiecesMatrix;
+  fen: string;
   reversed?: boolean;
   xAxisLabels?: AxisLabels;
   yAxisLabels?: AxisLabels;

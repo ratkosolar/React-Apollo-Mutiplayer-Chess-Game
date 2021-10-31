@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Props, AxisLegendProps, AxisLabels, Placement } from "./Legend.types";
 
-const StyledBoardLegendItem = styled.div<{ highlighted: boolean }>`
+const StyledBoardLegendItem = styled.div<{ $highlighted: boolean }>`
   font-size: 12px;
   line-height: 1;
   font-weight: 700;
@@ -15,32 +15,40 @@ const StyledBoardLegendItem = styled.div<{ highlighted: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${(p) => (p.highlighted ? `background: ${p.theme.colors.primary.dark};` : "")}
+  ${(p) =>
+    p.$highlighted ? `background: ${p.theme.colors.primary.dark};` : ""}
 `;
 
-const StyledLegendHorizontal = styled.div<{ placement: Placement }>`
+const StyledLegendHorizontal = styled.div<{
+  $reversed?: boolean;
+  $placement: Placement;
+}>`
   display: flex;
+  flex-direction: ${(p) => (p.$reversed ? "row-reverse" : "row")};
   padding: 0 18px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  ${(p) => (p.placement === "bottom" ? `top: auto; bottom: 0;` : "")}
+  ${(p) => (p.$placement === "bottom" ? `top: auto; bottom: 0;` : "")}
 
   & > ${StyledBoardLegendItem} {
     height: 18px;
   }
 `;
 
-const StyledLegendVertical = styled.div<{ placement: Placement }>`
+const StyledLegendVertical = styled.div<{
+  $reversed?: boolean;
+  $placement: Placement;
+}>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(p) => (p.$reversed ? "column-reverse" : "column")};
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   padding: 18px 0;
-  ${(p) => (p.placement === "right" ? `left: auto; right: 0;` : "")}
+  ${(p) => (p.$placement === "right" ? `left: auto; right: 0;` : "")}
 
   & > ${StyledBoardLegendItem} {
     width: 18px;
@@ -72,6 +80,7 @@ const AxisLegend: FC<AxisLegendProps> = ({
   placement,
   labels,
   hoveredCoordinates,
+  reversed,
 }) => {
   const isHorizontal = placement === "top" || placement === "bottom";
   const LegendComponent = isHorizontal
@@ -82,9 +91,9 @@ const AxisLegend: FC<AxisLegendProps> = ({
     : hoveredCoordinates?.y;
 
   return (
-    <LegendComponent placement={placement}>
+    <LegendComponent $placement={placement} $reversed={reversed}>
       {labels.map((label, index) => (
-        <StyledBoardLegendItem key={index} highlighted={coordinate === index}>
+        <StyledBoardLegendItem key={index} $highlighted={coordinate === index}>
           {label}
         </StyledBoardLegendItem>
       ))}

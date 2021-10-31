@@ -1,23 +1,26 @@
-import React, { FC, useRef, useCallback, memo } from "react";
+import React, { FC, memo, useCallback, useRef } from "react";
 import styled from "styled-components";
 import { Square } from "../Square";
 
 import { Props } from "./Board.types";
+import { Piece } from "../Piece";
+import { ChessColor, ChessPiece } from "../ChessBoard.types";
 
-const StyledBoard = styled.div`
+const StyledBoard = styled.div<{ $reversed?: boolean }>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(p) => (p.$reversed ? "column-reverse" : "column")};
   border: 2px solid ${(p) => p.theme.colors.secondary.dark};
 `;
 
-const StyledBoardRow = styled.div`
+const StyledBoardRow = styled.div<{ $reversed?: boolean }>`
   display: flex;
+  flex-direction: ${(p) => (p.$reversed ? "row-reverse" : "row")};
 `;
 
 const squaresMatrix = Array(8).fill(Array(8).fill(null));
 
 export const Board: FC<Props> = memo(
-  ({ piecesMatrix, reversed, onSquareHover }) => {
+  ({ piecesMatrix, onSquareHover, reversed }) => {
     const boardRef = useRef<HTMLDivElement | null>();
 
     const handleBoardMouseMove = useCallback(
@@ -48,15 +51,21 @@ export const Board: FC<Props> = memo(
         ref={(el) => (boardRef.current = el)}
         onMouseLeave={() => onSquareHover(undefined)}
         onMouseMove={handleBoardMouseMove}
+        $reversed={reversed}
       >
         {squaresMatrix.map((squares, y) => (
-          <StyledBoardRow key={y}>
+          <StyledBoardRow key={y} $reversed={reversed}>
             {squares.map((square, x) => (
               <Square
                 key={`${y}${x}`}
-                color={(x + y) % 2 === 0 ? "light" : "dark"}
+                color={(x + y) % 2 === 0 ? ChessColor.LIGHT : ChessColor.DARK}
               >
-                {piecesMatrix?.[y]?.[x]}
+                {piecesMatrix?.[y]?.[x] && (
+                  <Piece
+                    type={(piecesMatrix[y][x] as ChessPiece).type}
+                    color={(piecesMatrix[y][x] as ChessPiece).color}
+                  />
+                )}
               </Square>
             ))}
           </StyledBoardRow>
