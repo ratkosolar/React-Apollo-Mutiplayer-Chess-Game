@@ -3,11 +3,11 @@ import styled from "styled-components";
 
 import { Props } from "./Square.types";
 
-const StyledSquare = styled.div<{ color: "dark" | "light" }>`
+const StyledSquare = styled.div<{ $color: "light" | "dark" }>`
   flex-grow: 1;
   position: relative;
   background-color: ${(p) =>
-    p.color === "dark"
+    p.$color === "dark"
       ? p.theme.colors.primary.darker
       : p.theme.colors.primary.lighter};
 
@@ -29,10 +29,6 @@ const StyledSquare = styled.div<{ color: "dark" | "light" }>`
   }
 `;
 
-export const Square: FC<Props> = ({ children, x, y }) => {
-  return (
-    <StyledSquare key={`${y}${x}`} color={(y + x) % 2 === 0 ? "dark" : "light"}>
-      {children}
-    </StyledSquare>
-  );
+export const Square: FC<Props> = ({ children, color }) => {
+  return <StyledSquare $color={color}>{children}</StyledSquare>;
 };

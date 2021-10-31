@@ -14,16 +14,7 @@ const StyledBoardRow = styled.div`
   display: flex;
 `;
 
-const squaresMatrix = [
-  [0, 1, 2, 3, 4, 5, 6, 7],
-  [0, 1, 2, 3, 4, 5, 6, 7],
-  [0, 1, 2, 3, 4, 5, 6, 7],
-  [0, 1, 2, 3, 4, 5, 6, 7],
-  [0, 1, 2, 3, 4, 5, 6, 7],
-  [0, 1, 2, 3, 4, 5, 6, 7],
-  [0, 1, 2, 3, 4, 5, 6, 7],
-  [0, 1, 2, 3, 4, 5, 6, 7],
-];
+const squaresMatrix = Array(8).fill(Array(8).fill(null));
 
 export const Board: FC<Props> = memo(
   ({ piecesMatrix, reversed, onSquareHover }) => {
@@ -61,7 +52,10 @@ export const Board: FC<Props> = memo(
         {squaresMatrix.map((squares, y) => (
           <StyledBoardRow key={y}>
             {squares.map((square, x) => (
-              <Square x={x} y={y}>
+              <Square
+                key={`${y}${x}`}
+                color={(x + y) % 2 === 0 ? "light" : "dark"}
+              >
                 {piecesMatrix?.[y]?.[x]}
               </Square>
             ))}
