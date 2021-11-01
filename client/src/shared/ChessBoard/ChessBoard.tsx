@@ -74,7 +74,7 @@ export const ChessBoard: FC<Props> = ({
         });
       }
     },
-    [setDraggingPiece]
+    [setDraggingPiece, onMove]
   );
 
   return (

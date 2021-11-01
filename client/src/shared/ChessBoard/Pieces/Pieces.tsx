@@ -1,8 +1,8 @@
-import React, { FC, memo, useCallback, useMemo, useState } from "react";
+import React, { FC, memo, useMemo } from "react";
 import Draggable from "react-draggable";
 import styled from "styled-components";
 
-import { ChessPieceWithCoordinates, Props } from "./Pieces.types";
+import { Props } from "./Pieces.types";
 import { Piece } from "./Piece";
 import { convertChessPiecesMatrixToChessPiecesList } from "../utils";
 
