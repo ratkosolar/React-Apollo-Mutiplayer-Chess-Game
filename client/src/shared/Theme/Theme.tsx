@@ -37,8 +37,9 @@ const colors = {
   success: colorSuccess,
   danger: colorDanger,
   text: {
-    heading: "#000",
-    body: "#333",
+    heading: "#333",
+    body: "#666",
+    white: "#fff",
     link: colorSecondary.default,
     accent: colorSecondary.default,
   },
@@ -55,8 +56,8 @@ const breakpoints = {
 const zIndexes = {};
 
 const fonts = {
-  headings: `"Raleway", Helvetica, Arial, sans-serif`,
-  text: `"Lato", Helvetica, Arial, sans-serif`,
+  headings: `"Poppins", sans-serif`,
+  text: `"Open Sans", sans-serif`,
 };
 
 export const theme: Theme = {
@@ -76,7 +77,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     color: ${theme.colors.text.body};
-    font-size: 112.5%;
+    font-size: 100%;
     line-height: 1.6;
     font-family: ${theme.fonts.text};
 
@@ -84,6 +85,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: 100%;
     }
   }
+  
   p {
      margin: ${theme.unit(3)} 0 0;
   }
@@ -91,6 +93,7 @@ const GlobalStyles = createGlobalStyle`
   ::selection {
     background: ${theme.colors.secondary.default};
   }
+  
   ::-moz-selection {
     background: ${theme.colors.secondary.default};
   }

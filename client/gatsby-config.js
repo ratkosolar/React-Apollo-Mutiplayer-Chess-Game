@@ -4,7 +4,16 @@ const config = {
   siteTitleShort: "React Chess",
   siteDescription: "React Multiplayer Chess Game",
   copyright: "Copyright © 2021. Ratko Solar",
-  fonts: ["lato:300", "raleway:600"],
+  fonts: [
+    {
+      family: "Poppins",
+      weights: ["700"],
+    },
+    {
+      family: "Open Sans",
+      weights: ["400", "700"],
+    },
+  ],
   backgroundColor: "#ffffff",
   themeColor: "#000000",
 };
@@ -55,10 +64,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: config.fonts,
-        display: "swap",
       },
     },
     {
