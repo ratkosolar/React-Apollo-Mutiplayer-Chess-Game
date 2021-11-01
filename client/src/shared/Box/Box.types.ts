@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, ComponentType } from "react";
 
 type MarginProps = {
   m?: number | string;
@@ -23,7 +23,7 @@ type PaddingProps = {
 type StyleProps = MarginProps & PaddingProps;
 
 export type Props = {
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  as?: keyof JSX.IntrinsicElements | ComponentType<any>;
   children?: ReactNode;
   xl?: StyleProps;
   lg?: StyleProps;
