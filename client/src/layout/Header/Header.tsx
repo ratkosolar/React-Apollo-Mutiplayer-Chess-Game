@@ -41,10 +41,10 @@ export const Header = () => {
             <Navigation />
           </Flex>
           <Flex container item gutter={1}>
-            <Link to="/login" className="btn btn--white">
+            <Link to="/app/login" className="btn btn--white">
               <Button variant="secondary">Login</Button>
             </Link>
-            <Link to="/signup" className="btn btn--white">
+            <Link to="/app/signup" className="btn btn--white">
               <Button variant="secondary">Sign up</Button>
             </Link>
           </Flex>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Container, Flex, ThemeWrapper } from "../shared";
+import { ApolloProvider } from "../providers";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
@@ -18,15 +19,17 @@ const StyledMain = styled.main`
 const Layout = ({ children }) => {
   return (
     <ThemeWrapper>
-      <StyledLayout container direction="column">
-        <Header />
-        <Flex item grow={1}>
-          <StyledMain>
-            <Container>{children}</Container>
-          </StyledMain>
-        </Flex>
-        <Footer />
-      </StyledLayout>
+      <ApolloProvider>
+        <StyledLayout container direction="column">
+          <Header />
+          <Flex item grow={1}>
+            <StyledMain>
+              <Container>{children}</Container>
+            </StyledMain>
+          </Flex>
+          <Footer />
+        </StyledLayout>
+      </ApolloProvider>
     </ThemeWrapper>
   );
 };
