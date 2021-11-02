@@ -51,17 +51,17 @@ export const Navigation = () => {
     <StyledNav>
       <StyledUl>
         <StyledLi>
-          <StyledLink to="/" activeClassName="active">
+          <StyledLink to="/app" activeClassName="active">
             Dashboard
           </StyledLink>
         </StyledLi>
         <StyledLi>
-          <StyledLink to="/app/game-history" activeClassName="active">
+          <StyledLink to="/app/history" activeClassName="active">
             Game History
           </StyledLink>
         </StyledLi>
         <StyledLi>
-          <StyledLink to="/app/rankings" activeClassName="active">
+          <StyledLink to="/app/ranking" activeClassName="active">
             Rankings
           </StyledLink>
         </StyledLi>

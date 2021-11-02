@@ -88,5 +88,9 @@ module.exports = {
         icon: "static/logos/logo-icon.jpg",
       },
     },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/app/*`] },
+    },
   ],
 };

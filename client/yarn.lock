@@ -8911,6 +8911,13 @@ gatsby-plugin-canonical-urls@^4.0.0:
   dependencies:
     "@babel/runtime" "^7.15.4"
 
+gatsby-plugin-create-client-paths@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-4.0.0.tgz#6daea1fa894910d2f77f7b2fe71874060ffa97e5"
+  integrity sha512-/fx74FAgYNbYVNjtdPtYovQ3rNpVuPGynuGSgmcVdizICyckaf8z/aBIppyM6DzZ6E26WL2+7cSoGT/VX3V8EQ==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+
 gatsby-plugin-google-fonts-v2@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-fonts-v2/-/gatsby-plugin-google-fonts-v2-1.0.0.tgz#c910239b5518277ffad5bcd24ee973f6ad48a0f3"
