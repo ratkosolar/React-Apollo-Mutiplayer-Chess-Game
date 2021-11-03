@@ -1,0 +1,41 @@
+{
+  "name": "chess-multiplayer-game-server",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Ratko Solar <ratko.solar@gmail.com> (https://ratkosolar.com/)",
+  "scripts": {
+    "start": "yarn build:dev",
+    "dev": "webpack --config webpack.development.js",
+    "build": "webpack --config webpack.production.js",
+    "lint": "tsc --noEmit && eslint src/**/*.{ts,js}",
+    "format": "prettier --write \"src/**/*.{ts,js,md}\"",
+    "tsc": "tsc"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^3.4.0",
+    "graphql": "^16.0.1",
+    "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/webpack-env": "^1.16.3",
+    "@typescript-eslint/eslint-plugin": "^5.3.0",
+    "@typescript-eslint/parser": "^5.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "eslint": "^8.1.0",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.2.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "nodemon-webpack-plugin": "^4.5.2",
+    "prettier": "^2.4.1",
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
