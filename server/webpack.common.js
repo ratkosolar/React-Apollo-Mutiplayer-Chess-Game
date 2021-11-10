@@ -8,6 +8,11 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
       },
+      {
+        exclude: path.resolve(__dirname, 'node_modules'),
+        test: /\.(graphql|gql)$/,
+        loader: 'graphql-tag/loader',
+      },
     ],
   },
   output: {

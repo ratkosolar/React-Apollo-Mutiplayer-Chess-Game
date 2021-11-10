@@ -1,0 +1,45 @@
+type Token {
+  token: String!
+}
+
+type UserPublic {
+  id: ID!
+  username: String!
+  firstName: String!
+  lastName: String!
+}
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+}
+
+type Query {
+  myProfile: User
+
+  user(id: ID!): UserPublic
+
+  users: [UserPublic!]
+}
+
+type Mutation {
+  register(
+    username: String!
+    email: String!
+    password: String!
+    firstName: String
+    lastName: String
+  ): String!
+
+  login(username: String!, password: String!): Token!
+
+  updateProfile(firstName: String, lastName: String): User!
+
+  changePassword(oldPassword: String!, newPassword: String!): Boolean!
+
+  deleteUser(id: ID!): Boolean!
+}
