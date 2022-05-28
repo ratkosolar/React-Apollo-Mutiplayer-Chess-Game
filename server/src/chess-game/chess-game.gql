@@ -1,0 +1,34 @@
+input ChessGameFilter {
+  playerID: ID
+  winnerID: ID
+  gameOverReason: String
+}
+
+type ChessGame {
+  id: ID!
+  playerOneID: ID!
+  playerTwoID: ID
+  playerOne: UserPublic!
+  playerTwo: UserPublic
+  playerOneColor: String!
+  playerTwoColor: String!
+  fen: String!
+  pgn: String
+  startDate: Date!
+  endDate: Date
+  gameOverReason: String
+  winnerID: ID
+  winner: UserPublic
+}
+
+extend type Query {
+  chessGames(filter: ChessGameFilter, limit: Int, offset: Int): [ChessGame!]
+  chessGamesCount(filter: ChessGameFilter): Int!
+  chessGame(id: ID!): ChessGame
+}
+
+extend type Mutation {
+  createChessGame: ChessGame!
+  joinChessGame(id: ID!): ChessGame!
+  makeChessGameMove(id: ID!, move: String!): ChessGame!
+}
