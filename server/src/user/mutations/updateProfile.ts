@@ -1,3 +1,4 @@
+import { Schema } from 'mongoose';
 import { User } from '../user.model';
 import { IUser } from '../user.types';
 
@@ -6,7 +7,7 @@ type Args = {
   lastName: string;
 };
 
-type UpdateProfileMutation = (id: string, args: Args) => Promise<IUser | null>;
+type UpdateProfileMutation = (id: Schema.Types.ObjectId, args: Args) => Promise<IUser | null>;
 
 export const updateProfile: UpdateProfileMutation = async (id, { firstName, lastName }) => {
   return User.findByIdAndUpdate(id, { firstName, lastName }, { new: true });

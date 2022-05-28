@@ -8,5 +8,5 @@ type Args = {
 type UserQuery = (args: Args) => Promise<IUser | null>;
 
 export const user: UserQuery = async ({ id }) => {
-  return User.findById(id).select('-email');
+  return id ? User.findById(id).select('-email') : null;
 };

@@ -18,7 +18,7 @@ type User {
   role: String!
 }
 
-type Query {
+extend type Query {
   myProfile: User
 
   user(id: ID!): UserPublic
@@ -26,7 +26,7 @@ type Query {
   users: [UserPublic!]
 }
 
-type Mutation {
+extend type Mutation {
   register(
     username: String!
     email: String!

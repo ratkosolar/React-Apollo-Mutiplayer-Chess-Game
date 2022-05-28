@@ -1,12 +1,13 @@
-import { User } from '../user.model';
+import { Schema } from 'mongoose';
 import { AuthenticationError } from 'apollo-server-express';
+import { User } from '../user.model';
 
 type Args = {
   oldPassword: string;
   newPassword: string;
 };
 
-type ChangePasswordMutation = (id: string, args: Args) => Promise<boolean>;
+type ChangePasswordMutation = (id: Schema.Types.ObjectId, args: Args) => Promise<boolean>;
 
 export const changePassword: ChangePasswordMutation = async (id, { oldPassword, newPassword }) => {
   const user = await User.findById(id);

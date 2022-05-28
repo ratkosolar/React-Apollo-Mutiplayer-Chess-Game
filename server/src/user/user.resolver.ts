@@ -24,5 +24,3 @@ export const userResolver: Resolver<any, any, any, any> = {
   Query,
   Mutation,
 };
-
-export { default as userTypeDefs } from './user.gql';

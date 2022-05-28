@@ -4,7 +4,7 @@
   "description": "",
   "author": "Ratko Solar <ratko.solar@gmail.com> (https://ratkosolar.com/)",
   "scripts": {
-    "start": "yarn build:dev",
+    "start": "yarn dev",
     "dev": "webpack --config webpack.development.js",
     "build": "webpack --config webpack.production.js",
     "lint": "tsc --noEmit && eslint src/**/*.{ts,js}",
@@ -16,6 +16,7 @@
     "apollo-server-core": "^3.4.0",
     "apollo-server-express": "^3.4.0",
     "bcrypt": "^5.0.1",
+    "chess.js": "^0.12.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

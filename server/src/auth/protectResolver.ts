@@ -1,11 +1,11 @@
 import { ForbiddenError } from 'apollo-server-express';
 import { Role } from '../user/user.types';
-import { ResolverFn } from '../types';
+import { Schema } from 'mongoose';
 
 type JwtPayload = {
   username: string;
   email: string;
-  id: string;
+  id: Schema.Types.ObjectId;
   role: Role;
 };
 
