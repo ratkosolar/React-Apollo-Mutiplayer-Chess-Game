@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import * as chessJs from 'chess.js';
+import { Chess } from 'chess.js';
 import { ChessGame } from '../chess-game.model';
 import { ChessColor, IChessGame } from '../chess-game.types';
 
@@ -19,7 +19,7 @@ export const createChessGame: CreateChessGameMutation = async (userId) => {
   if (games.length >= 1) {
     throw new Error(`You can't have more than 1 open game.`);
   }
-  const chess = new chessJs.Chess();
+  const chess = new Chess();
   const fen = chess.fen();
   const pgn = chess.pgn();
   const { playerOneColor, playerTwoColor } = getRandomPlayerColors();

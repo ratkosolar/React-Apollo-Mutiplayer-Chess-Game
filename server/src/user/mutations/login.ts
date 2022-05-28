@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { User } from '../user.model';
 import { AuthenticationError } from 'apollo-server-express';
-import { signJwtToken, verifyJwtToken } from '../../auth';
+import { signJwtToken } from '../../auth';
 const { JWT_SECRET_KEY = '' } = process.env;
 
 type Args = {

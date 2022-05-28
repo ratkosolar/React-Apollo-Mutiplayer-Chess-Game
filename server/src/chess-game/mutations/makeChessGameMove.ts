@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 import { ForbiddenError } from 'apollo-server-express';
-import * as chessJs from 'chess.js';
+import { Chess } from 'chess.js';
 import { ChessGame } from '../chess-game.model';
 import { ChessGameOverReason, IChessGame } from '../chess-game.types';
 
@@ -28,7 +28,7 @@ export const makeChessGameMove: MakeChessGameMoveMutation = async (userId, { id,
     throw new ForbiddenError('Not allowed to make moves');
   }
 
-  const chess = new chessJs.Chess(game.fen);
+  const chess = new Chess(game.fen);
   chess.load_pgn(game.pgn);
 
   const currentTurnColor = chess.turn();

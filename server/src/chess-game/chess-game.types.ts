@@ -1,4 +1,4 @@
-import { Document, Model, Schema } from 'mongoose';
+import { Model, Schema } from 'mongoose';
 
 export enum ChessColor {
   WHITE = 'w',
@@ -26,7 +26,4 @@ export interface IChessGame {
   winnerID?: Schema.Types.ObjectId;
 }
 
-export interface IChessGameDocument extends IChessGame, Document {}
-
-export interface IChessGameModel
-  extends Model<IChessGame, IChessGameDocument, IChessGameDocument> {}
+export type ChessGameModel = Model<IChessGame, {}, {}>;

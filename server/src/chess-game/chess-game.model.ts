@@ -1,15 +1,9 @@
 import { model, Schema } from 'mongoose';
-import {
-  ChessColor,
-  ChessGameOverReason,
-  IChessGame,
-  IChessGameDocument,
-  IChessGameModel,
-} from './chess-game.types';
+import { ChessColor, ChessGameOverReason, IChessGame, ChessGameModel } from './chess-game.types';
 
 const { ObjectId } = Schema.Types;
 
-const ChessGameSchema = new Schema<IChessGame, IChessGameModel, IChessGame>({
+const ChessGameSchema = new Schema<IChessGame, ChessGameModel>({
   playerOneID: {
     type: ObjectId,
     required: true,
@@ -42,4 +36,4 @@ const ChessGameSchema = new Schema<IChessGame, IChessGameModel, IChessGame>({
   winnerID: ObjectId,
 });
 
-export const ChessGame = model<IChessGameDocument, IChessGameModel>('ChessGame', ChessGameSchema);
+export const ChessGame = model<IChessGame, ChessGameModel>('ChessGame', ChessGameSchema);

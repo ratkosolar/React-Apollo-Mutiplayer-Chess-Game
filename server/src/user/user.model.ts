@@ -1,9 +1,9 @@
 import { model, Schema } from 'mongoose';
 import { compareSync, hashSync } from 'bcrypt';
 import isEmail from 'validator/lib/isEmail';
-import { IUser, IUserDocument, IUserModel, Role } from './user.types';
+import { IUser, IUserMethods, UserModel, Role } from './user.types';
 
-const userSchema = new Schema<IUser, IUserModel, IUser>(
+const schema = new Schema<IUser, UserModel, IUserMethods>(
   {
     username: {
       type: String,
@@ -41,25 +41,23 @@ const userSchema = new Schema<IUser, IUserModel, IUser>(
   { autoCreate: true }
 );
 
-userSchema.statics.findByUsernameOrEmail = async function findByUsernameOrEmail(
-  usernameOrEmail: string
-): Promise<IUserDocument | null> {
+schema.statics.findByUsernameOrEmail = async function findByUsernameOrEmail(usernameOrEmail) {
   return this.findOne({
     $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }],
   });
 };
 
-userSchema.methods.encryptPassword = function encryptPassword(password: string): string {
+schema.methods.encryptPassword = function encryptPassword(password) {
   const saltRounds = 10;
   return hashSync(password, saltRounds);
 };
 
-userSchema.methods.comparePassword = function comparePassword(password: string): boolean {
+schema.methods.comparePassword = function comparePassword(password) {
   return compareSync(password, this.password);
 };
 
-userSchema.pre<IUserDocument>('save', async function preSave() {
+schema.pre('save', async function preSave() {
   this.password = this.encryptPassword(this.password);
 });
 
-export const User = model<IUserDocument, IUserModel>('User', userSchema);
+export const User = model<IUser, UserModel>('User', schema);

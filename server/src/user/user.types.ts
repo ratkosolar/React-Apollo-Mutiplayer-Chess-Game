@@ -1,4 +1,4 @@
-import { Model, Document } from 'mongoose';
+import { Model, HydratedDocument } from 'mongoose';
 
 export enum Role {
   ADMIN = 'ADMIN',
@@ -14,11 +14,13 @@ export interface IUser {
   role: Role;
 }
 
-export interface IUserDocument extends IUser, Document {
-  encryptPassword: (password: string) => string;
-  comparePassword: (password: string) => boolean;
+export interface IUserMethods {
+  encryptPassword(password: string): string;
+  comparePassword(password: string): boolean;
 }
 
-export interface IUserModel extends Model<IUser, IUserDocument, IUserDocument> {
-  findByUsernameOrEmail: (usernameOrEmail: string) => Promise<IUserDocument | null>;
+export interface UserModel extends Model<IUser, {}, IUserMethods> {
+  findByUsernameOrEmail(
+    usernameOrEmail: string
+  ): Promise<HydratedDocument<IUser, IUserMethods> | null>;
 }
