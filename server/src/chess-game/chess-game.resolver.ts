@@ -1,8 +1,7 @@
-import { protectResolver } from '../auth';
+import { protectedResolver } from '../auth';
 import { createChessGame, joinChessGame, makeChessGameMove } from './mutations';
 import { chessGames, chessGamesCount, chessGame } from './queries';
 import { user } from '../user/queries';
-import { Resolver } from '../types';
 
 const ChessGame = {
   playerOne: (parent) => user({ id: parent.playerOneID }),
@@ -11,22 +10,23 @@ const ChessGame = {
 };
 
 const Query = {
-  chessGames: protectResolver((jwtPayload, parent, args) => chessGames(args)),
-  chessGamesCount: protectResolver((jwtPayload, parent, args) => chessGamesCount(args)),
-  chessGame: protectResolver((jwtPayload, parent, args) => chessGame(args)),
+  chessGames: protectedResolver((jwtPayload, parent, args) => chessGames(args)),
+  chessGamesCount: protectedResolver((jwtPayload, parent, args) => chessGamesCount(args)),
+  chessGame: protectedResolver((jwtPayload, parent, args) => chessGame(args)),
 };
 
 const Mutation = {
-  createChessGame: protectResolver((jwtPayload, parent, args) => createChessGame(jwtPayload.id)),
-  joinChessGame: protectResolver((jwtPayload, parent, args) => joinChessGame(jwtPayload.id, args)),
-  makeChessGameMove: protectResolver((jwtPayload, parent, args) =>
+  createChessGame: protectedResolver((jwtPayload) => createChessGame(jwtPayload.id)),
+  joinChessGame: protectedResolver((jwtPayload, parent, args) =>
+    joinChessGame(jwtPayload.id, args)
+  ),
+  makeChessGameMove: protectedResolver((jwtPayload, parent, args) =>
     makeChessGameMove(jwtPayload.id, args)
   ),
 };
 
-export const chessGameResolver: Resolver<any, any, any, any> = {
+export const chessGameResolver = {
   Query,
   Mutation,
-  // @ts-ignore
   ChessGame,
 };

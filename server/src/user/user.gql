@@ -33,7 +33,7 @@ extend type Mutation {
     password: String!
     firstName: String
     lastName: String
-  ): String!
+  ): User!
 
   login(username: String!, password: String!): Token!
 

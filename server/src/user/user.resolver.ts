@@ -1,26 +1,27 @@
-import { protectResolver } from '../auth';
+import { protectedResolver } from '../auth';
 import { changePassword, deleteUser, login, register, updateProfile } from './mutations';
 import { myProfile, user, users } from './queries';
-import { Resolver } from '../types';
 import { Role } from './user.types';
 
 const Query = {
-  myProfile: protectResolver((jwtPayload, parent, args, context) => myProfile(jwtPayload.id)),
-  user: protectResolver((jwtPayload, parent, args) => user(args)),
-  users: protectResolver(() => users()),
+  myProfile: protectedResolver((jwtPayload) => myProfile(jwtPayload.id)),
+  user: protectedResolver((jwtPayload, parent, args) => user(args)),
+  users: protectedResolver(() => users()),
 };
 
 const Mutation = {
   register: (parent, args) => register(args),
   login: (parent, args) => login(args),
-  updateProfile: protectResolver((jwtPayload, parent, args) => updateProfile(jwtPayload.id, args)),
-  changePassword: protectResolver((jwtPayload, parent, args) =>
+  updateProfile: protectedResolver((jwtPayload, parent, args) =>
+    updateProfile(jwtPayload.id, args)
+  ),
+  changePassword: protectedResolver((jwtPayload, parent, args) =>
     changePassword(jwtPayload.id, args)
   ),
-  deleteUser: protectResolver((jwtPayload, parent, args) => deleteUser(args), [Role.ADMIN]),
+  deleteUser: protectedResolver((jwtPayload, parent, args) => deleteUser(args), [Role.ADMIN]),
 };
 
-export const userResolver: Resolver<any, any, any, any> = {
+export const userResolver = {
   Query,
   Mutation,
 };

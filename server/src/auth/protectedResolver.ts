@@ -1,15 +1,8 @@
 import { ForbiddenError } from 'apollo-server-express';
 import { Role } from '../user/user.types';
-import { Schema } from 'mongoose';
+import { JwtPayload } from './auth.types';
 
-type JwtPayload = {
-  username: string;
-  email: string;
-  id: Schema.Types.ObjectId;
-  role: Role;
-};
-
-type WithAuthenticationResolver = (
+type ProtectedResolver = (
   resolverFn: (jwtPayload: JwtPayload, parent: any, args: any, context: any) => any,
   allowedRoles?: Role[]
 ) => (
@@ -18,7 +11,7 @@ type WithAuthenticationResolver = (
   context: any
 ) => (jwtPayload: JwtPayload, parent: any, args: any, context: any) => any;
 
-export const protectResolver: WithAuthenticationResolver = (resolverFn, allowedRoles) => {
+export const protectedResolver: ProtectedResolver = (resolverFn, allowedRoles) => {
   return (parent, args, context) => {
     const { jwtPayload } = context;
 
