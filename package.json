@@ -22,7 +22,7 @@
     "react-draggable": "^3.2.1",
     "react-moment": "^0.9.1",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "5.0.1",
     "subscriptions-transport-ws": "^0.9.16"
   },
   "devDependencies": {
